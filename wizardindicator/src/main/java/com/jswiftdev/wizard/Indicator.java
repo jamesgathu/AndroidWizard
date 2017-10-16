@@ -5,12 +5,8 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
-
-import com.jswiftdev.wizardindicator.R;
-
 
 public class Indicator extends View {
     private int numberOfPages;
@@ -25,12 +21,12 @@ public class Indicator extends View {
 
     private Paint paint;
 
-    public Indicator(Context context, @Nullable AttributeSet attrs) {
+    public Indicator(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public Indicator(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public Indicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
@@ -45,7 +41,6 @@ public class Indicator extends View {
         invalidate();
         return this;
     }
-
 
 
     private void init(AttributeSet attrs) {

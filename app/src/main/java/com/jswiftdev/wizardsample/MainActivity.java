@@ -1,7 +1,9 @@
-package com.jswiftdev.wizard;
+package com.jswiftdev.wizardsample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.jswiftdev.wizard.Indicator;
 
 
 public class MainActivity extends AppCompatActivity {

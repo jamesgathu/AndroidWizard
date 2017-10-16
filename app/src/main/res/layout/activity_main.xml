@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.jswiftdev.wizard.views.WizardIndicator
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        app:lineColor="@color/deep_silver"
+        app:numberOfPages="5"
+        app:circleRadius="35"
+        app:textSize="30"
+        app:activePage="5"
+        app:activeCircleColor="@color/apple_orange"
+        app:circleColor="@color/deep_silver"
+        app:lineWidth="3" />
+
+</RelativeLayout>

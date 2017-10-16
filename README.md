@@ -1,13 +1,12 @@
 # Android Wizard
  
-Take it as a plugin for wizards to track the change in pages
-Soon this will be available as a dependency. 
-
-Keep watch
+Take it as a plugin for wizards to track the change in pages  
+The dependency is available on **jcenter()** and **mavenCentral()**
 
 ![Image](screenshots/1.png)
 
-integration 
+# Integration
+
 
 Add the following to your **build.gradle(App)**
 ```gradle
@@ -42,11 +41,15 @@ protected void onCreate(Bundle savedInstanceState) {
 
     //to change from one active page to another
     indicator.setActivePage(1);
+    
+    //set the number of pages
+    indicator.setNumberOfPages(5);
 }
 ```
 
-License
-=======
+while using it with viewpager add [indicator.setActivePage(position);] in [onTabSelected(...)] method
+
+# License
 
     Copyright 2017 Jswiftdev.
 

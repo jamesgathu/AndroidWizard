@@ -31,17 +31,40 @@ public class Indicator extends View {
         init(attrs);
     }
 
+    /**
+     * provide the total number of the pages that you wish to be shown in the indicator
+     *
+     * @param numberOfPages
+     * @return
+     */
     public Indicator setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
         return this;
     }
 
+
+    /**
+     * provide the page number of the currently selected page
+     *
+     * @param activePage
+     * @return
+     */
     public Indicator setActivePage(int activePage) {
         this.activePage = activePage;
         invalidate();
         return this;
     }
 
+    /**
+     * provide the color of the horizontal color shown on the indicator
+     *
+     * @param lineColor
+     * @return
+     */
+    public Indicator setLineColor(int lineColor) {
+        this.lineColor = lineColor;
+        return this;
+    }
 
     private void init(AttributeSet attrs) {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.wizard);

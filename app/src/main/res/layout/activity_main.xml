@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <com.jswiftdev.wizard.views.WizardIndicator
+        android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_centerInParent="true"

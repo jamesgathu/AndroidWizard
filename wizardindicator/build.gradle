@@ -32,8 +32,8 @@ ext {
     bintrayRepo = 'AndroidWizardIndicator'
     bintrayName = 'Indicator'
 
-    publishedGroupId = 'com.jswiftdev'
     libraryName = 'Wizard'
+    publishedGroupId = 'com.jswiftdev.wizard'
     artifact = 'Indicator'
 
     libraryDescription = 'An Indicator that tracks the current page within a view pager. Well applicable in a wizard or set up situation'
@@ -41,7 +41,7 @@ ext {
     siteUrl = 'https://github.com/GathuJamex/AndroidWizard'
     gitUrl = 'https://github.com/GathuJamex/AndroidWizard.git'
 
-    libraryVersion = '1.0.3'
+    libraryVersion = '1.0.4'
 
     developerId = 'gathujamex254'
     developerName = 'James Gathu'

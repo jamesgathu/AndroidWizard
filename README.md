@@ -11,7 +11,7 @@ integration
 
 Add the following to your **build.gradle(App)**
 ```bash
-compile 'com.jswiftdev:Indicator:1.0.3'
+compile 'com.jswiftdev.wizard:Indicator:1.0.4'
 ```
 In your layout add the following view
 ```xml

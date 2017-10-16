@@ -4,18 +4,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.jswiftdev.wizard.views.WizardIndicator
+    <com.jswiftdev.wizard.Indicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:layout_centerInParent="true"
         app:lineColor="@color/deep_silver"
         app:numberOfPages="5"
         app:circleRadius="35"
         app:textSize="30"
-        app:activePage="5"
+        app:activePage="3"
         app:activeCircleColor="@color/apple_orange"
         app:circleColor="@color/deep_silver"
+        app:lineWidth="3" />
+
+    <com.jswiftdev.wizard.Indicator
+        android:layout_below="@+id/indicator"
+        android:id="@+id/indicator2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:lineColor="@color/apple_green"
+        app:numberOfPages="7"
+        app:circleRadius="25"
+        app:textSize="20"
+        app:activePage="2"
+        app:activeCircleColor="@color/apple_red"
+        app:circleColor="@color/apple_green"
         app:lineWidth="3" />
 
 </RelativeLayout>

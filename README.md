@@ -15,7 +15,7 @@ Add the following to your **build.gradle(App)**
 coming soon
 ```
 In your layout add the following view
-``` xml
+```xml
 <com.jswiftdev.wizard.views.WizardIndicator
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -31,6 +31,7 @@ In your layout add the following view
 ```
 to manipulate the changes from page to page, you can use
 ```java
+...
 private WizardIndicator indicator;
 
 @Override
@@ -42,6 +43,7 @@ indicator = (WizardIndicator)findViewById(R.id.indicator);
 indicator.setActivePage(1);
 ...
 }
+...
 ```
 
 more stuff will be coming soon!!!

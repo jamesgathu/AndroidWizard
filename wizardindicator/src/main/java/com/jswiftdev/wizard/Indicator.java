@@ -1,4 +1,4 @@
-package com.jswiftdev.wizard.views;
+package com.jswiftdev.wizard;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,10 +9,10 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.jswiftdev.wizard.R;
+import com.jswiftdev.wizardindicator.R;
 
 
-public class WizardIndicator extends View {
+public class Indicator extends View {
     private int numberOfPages;
     private int circleColor;
     private int activeCircleColor;
@@ -25,20 +25,28 @@ public class WizardIndicator extends View {
 
     private Paint paint;
 
-    public WizardIndicator(Context context, @Nullable AttributeSet attrs) {
+    public Indicator(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public WizardIndicator(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public Indicator(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
 
-    public WizardIndicator setNumberOfPages(int numberOfPages) {
+    public Indicator setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
         return this;
     }
+
+    public Indicator setActivePage(int activePage) {
+        this.activePage = activePage;
+        invalidate();
+        return this;
+    }
+
+
 
     private void init(AttributeSet attrs) {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.wizard);
@@ -80,18 +88,17 @@ public class WizardIndicator extends View {
             x = singleWidth * i;
 
 
-
-            if(i == activePage){
+            if (i == activePage) {
                 paint.setColor(activeCircleColor);
                 canvas.drawCircle(x, height / 2, circleRadius, paint);
-            }else {
+            } else {
                 paint.setColor(circleColor);
                 canvas.drawCircle(x, height / 2, circleRadius, paint);
             }
 
             paint.setColor(textColor);
-            canvas.drawText(String.valueOf(i), 0, 1, x - textSize/relatedRatio,
-                    (height / 2)+textSize/relatedRatio, paint);
+            canvas.drawText(String.valueOf(i), 0, 1, x - textSize / relatedRatio,
+                    (height / 2) + textSize / relatedRatio, paint);
         }
     }
 }

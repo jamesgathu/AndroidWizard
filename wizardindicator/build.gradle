@@ -1,5 +1,29 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'AndroidWizardIndicator'
+    bintrayName = 'wizardindicator'
+
+    publishedGroupId = 'com.jswiftdev.wizard'
+    libraryName = 'wizardindicator'
+    artifact = 'wizardindicator'
+
+    libraryDescription = 'An Indicator that tracks the current page within a view pager. Well applicable in a wizard or set up situation'
+
+    siteUrl = 'https://github.com/GathuJamex/AndroidWizard'
+    gitUrl = 'https://github.com/GathuJamex/AndroidWizard.git'
+
+    libraryVersion = '1.1.2'
+
+    developerId = 'gathujamex254'
+    developerName = 'James Gathu'
+    developerEmail = 'gathujamex@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -8,7 +32,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName libraryVersion
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -28,29 +52,7 @@ dependencies {
 }
 
 
-ext {
-    bintrayRepo = 'AndroidWizardIndicator'
-    bintrayName = 'Wizard'
 
-    publishedGroupId = 'com.jswiftdev'
-    libraryName = 'Wizard'
-    artifact = 'Wizard'
-
-    libraryDescription = 'An Indicator that tracks the current page within a view pager. Well applicable in a wizard or set up situation'
-
-    siteUrl = 'https://github.com/GathuJamex/AndroidWizard'
-    gitUrl = 'https://github.com/GathuJamex/AndroidWizard.git'
-
-    libraryVersion = '1.0.8'
-
-    developerId = 'gathujamex254'
-    developerName = 'James Gathu'
-    developerEmail = 'gathujamex@gmail.com'
-
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
-}
 
 apply plugin: 'com.github.dcendents.android-maven'
 

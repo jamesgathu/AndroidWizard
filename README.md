@@ -13,7 +13,7 @@ Add the following to your **build.gradle(App)**
 
     dependencies {
         //other dependencies
-        compile 'com.jswiftdev.wizard:Indicator:1.0.4'
+        compile 'com.jswiftdev.wizard:wizardindicator:1.1.2'
     }
 ```
 In your layout add the following view

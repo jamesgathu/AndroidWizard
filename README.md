@@ -9,14 +9,16 @@ The dependency is available on **jcenter()** and **mavenCentral()**
 
 
 Add the following to your **build.gradle(App)**
-```gradle
+```gradle  
+
     dependencies {
         //other dependencies
         compile 'com.jswiftdev.wizard:Indicator:1.0.4'
     }
 ```
 In your layout add the following view
-```xml
+```xml  
+
     <com.jswiftdev.wizard.Indicator
             android:id="@+id/indicator"
             android:layout_width="match_parent"
@@ -32,7 +34,8 @@ In your layout add the following view
 ```
 to manipulate the changes from page to page, you can use
 
-```java
+```java  
+
     import com.jswiftdev.wizard.Indicator;
     
     @Override

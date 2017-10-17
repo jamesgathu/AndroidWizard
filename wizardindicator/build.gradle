@@ -30,18 +30,18 @@ dependencies {
 
 ext {
     bintrayRepo = 'AndroidWizardIndicator'
-    bintrayName = 'Indicator'
+    bintrayName = 'Wizard'
 
+    publishedGroupId = 'com.jswiftdev'
     libraryName = 'Wizard'
-    publishedGroupId = 'com.jswiftdev.wizard'
-    artifact = 'Indicator'
+    artifact = 'Wizard'
 
     libraryDescription = 'An Indicator that tracks the current page within a view pager. Well applicable in a wizard or set up situation'
 
     siteUrl = 'https://github.com/GathuJamex/AndroidWizard'
     gitUrl = 'https://github.com/GathuJamex/AndroidWizard.git'
 
-    libraryVersion = '1.0.4'
+    libraryVersion = '1.0.8'
 
     developerId = 'gathujamex254'
     developerName = 'James Gathu'
@@ -53,7 +53,6 @@ ext {
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
-
 
 group = publishedGroupId                               // Maven Group ID for the artifact
 

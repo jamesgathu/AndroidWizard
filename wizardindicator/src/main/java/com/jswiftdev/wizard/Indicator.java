@@ -34,8 +34,8 @@ public class Indicator extends View {
     /**
      * provide the total number of the pages that you wish to be shown in the indicator
      *
-     * @param numberOfPages
-     * @return
+     * @param numberOfPages total number of pages
+     * @return instance of this class
      */
     public Indicator setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
@@ -46,8 +46,8 @@ public class Indicator extends View {
     /**
      * provide the page number of the currently selected page
      *
-     * @param activePage
-     * @return
+     * @param activePage page number
+     * @return instance of this class
      */
     public Indicator setActivePage(int activePage) {
         this.activePage = activePage;
@@ -58,8 +58,8 @@ public class Indicator extends View {
     /**
      * provide the color of the horizontal color shown on the indicator
      *
-     * @param lineColor
-     * @return
+     * @param lineColor color
+     * @return instance of this class
      */
     public Indicator setLineColor(int lineColor) {
         this.lineColor = lineColor;

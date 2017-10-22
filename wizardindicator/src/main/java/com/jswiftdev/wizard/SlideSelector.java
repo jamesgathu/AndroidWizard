@@ -25,9 +25,9 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
     private int textPadding = 0;
     private int textBackGroundColor = Color.TRANSPARENT;
     private int textColor = Color.BLACK;
-    private int optionsArrayId = R.array.options_default;
+    private CharSequence[] optionsArrayId;
     private int drawableId = R.drawable.back_circle;
-    private int activeTextColor = R.color.white;
+    private int activeTextColor = Color.WHITE;
     private int inActiveTextColor = Color.GRAY;
 
     private Drawable marker;
@@ -73,16 +73,17 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
             textColor = typedArray.getColor(R.styleable.chooser_tColor, Color.WHITE);
             activeTextColor = typedArray.getColor(R.styleable.chooser_activeTextColor, Color.WHITE);
             inActiveTextColor = typedArray.getColor(R.styleable.chooser_inActiveTextColor, Color.WHITE);
-            optionsArrayId = typedArray.getResourceId(R.styleable.chooser_choicesArrayId, Color.WHITE);
+            optionsArrayId = typedArray.getTextArray(R.styleable.chooser_choicesArrayId);
             drawableId = typedArray.getResourceId(R.styleable.chooser_drawableId, Color.WHITE);
             typedArray.recycle();
         }
 
 
-        String[] array = getResources().getStringArray(optionsArrayId);
+        if (optionsArrayId == null)
+            optionsArrayId = getResources().getStringArray(R.array.options_default);
 
 
-        for (String text : array) {
+        for (CharSequence text : optionsArrayId) {
             TextView textView = getTextView(text);
             linearLayout.addView(textView);
         }
@@ -98,7 +99,7 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
      * @param text String to be shown
      * @return TextView
      */
-    private TextView getTextView(String text) {
+    private TextView getTextView(CharSequence text) {
         TextView textView = new TextView(getContext());
         textView.setText(text);
 
@@ -153,11 +154,6 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         float c = v.getWidth() / 2;
         float b = c - a;
 
-        for (int i = 0; i < linearLayout.getChildCount(); i++) {
-            if (linearLayout.getChildAt(i) instanceof TextView) {
-                ((TextView) linearLayout.getChildAt(i)).setTextColor(inActiveTextColor);
-            }
-        }
 
         ballMarker.animate().translationX(v.getX() + b).setListener(new Animator.AnimatorListener() {
             @Override
@@ -167,6 +163,11 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
 
             @Override
             public void onAnimationEnd(Animator animation) {
+                for (int i = 0; i < linearLayout.getChildCount(); i++) {
+                    if (linearLayout.getChildAt(i) instanceof TextView) {
+                        ((TextView) linearLayout.getChildAt(i)).setTextColor(inActiveTextColor);
+                    }
+                }
                 ((TextView) v).setTextColor(activeTextColor);
             }
 
@@ -182,7 +183,8 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         });
 
 
-        selectionChanges.onSelectedIndexChanged(v.getTag().toString());
+        if (selectionChanges != null)
+            selectionChanges.onSelectedIndexChanged(v.getTag().toString());
     }
 
 

@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/GathuJamex/AndroidWizard'
     gitUrl = 'https://github.com/GathuJamex/AndroidWizard.git'
 
-    libraryVersion = '1.1.6'
+    libraryVersion = '0.1.1'
 
     developerId = 'gathujamex254'
     developerName = 'James Gathu'
@@ -26,7 +26,7 @@ ext {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 15

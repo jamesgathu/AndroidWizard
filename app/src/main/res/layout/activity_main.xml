@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <com.jswiftdev.wizard.LineIndicator
@@ -11,22 +13,40 @@
         app:activeCircleColor="@color/apple_orange"
         app:activePage="3"
         app:circleColor="@color/deep_silver"
-        app:circleRadius="35"
+        app:circleRadius="50"
         app:lineColor="@color/deep_silver"
         app:lineWidth="3"
         app:numberOfPages="5"
         app:textSize="30" />
 
     <com.jswiftdev.wizard.SlideSelector
+        android:clickable="false"
         android:id="@+id/slider_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/indicator"
-        app:textPadding="20"
+        app:activeTextColor="@color/white"
         app:choicesArrayId="@array/options"
         app:drawableId="@drawable/another_back"
-        app:activeTextColor="@color/white"
         app:inActiveTextColor="@color/black"
-        app:tColor="@color/black" />
+        app:tColor="@color/black"
+        app:textPadding="20" />
 
-</RelativeLayout>
+    <TextView
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="30dp"
+        android:text="Click on option to see action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <com.jswiftdev.wizard.SlideSelector
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:activeTextColor="@color/white"
+        app:choicesArrayId="@array/options"
+        app:drawableId="@drawable/another_back"
+        app:inActiveTextColor="@color/black"
+        app:tColor="@color/black"
+        app:textPadding="20" />
+
+</LinearLayout>

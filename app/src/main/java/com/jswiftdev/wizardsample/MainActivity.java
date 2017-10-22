@@ -1,19 +1,28 @@
 package com.jswiftdev.wizardsample;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 
-import com.jswiftdev.wizard.Indicator;
+import com.jswiftdev.wizard.SlideSelector;
 
 
-public class MainActivity extends AppCompatActivity {
-    private Indicator indicator;
+public class MainActivity extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        indicator = findViewById(R.id.indicator);
+        SlideSelector slideTest = findViewById(R.id.slider_selector);
+        slideTest.setSelectionChanges(new SlideSelector.SelectionChanges() {
+            @Override
+            public void onSelectedIndexChanged(String selectedItem) {
+                Log.i("riven: ",selectedItem);
+            }
+        });
+
+        slideTest.setSelectedIndex(4);
     }
 }
+

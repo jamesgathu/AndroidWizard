@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">WizardIndicator</string>
+
+    <string-array name="options_default">
+        <item>Any</item>
+        <item>0+</item>
+        <item>1+</item>
+        <item>2+</item>
+        <item>3+</item>
+        <item>4+</item>
+        <item>5+</item>
+    </string-array>
 </resources>

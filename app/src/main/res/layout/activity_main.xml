@@ -4,31 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.jswiftdev.wizard.Indicator
+    <com.jswiftdev.wizard.LineIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:lineColor="@color/deep_silver"
-        app:numberOfPages="5"
-        app:circleRadius="35"
-        app:textSize="30"
-        app:activePage="3"
         app:activeCircleColor="@color/apple_orange"
+        app:activePage="3"
         app:circleColor="@color/deep_silver"
-        app:lineWidth="3" />
+        app:circleRadius="35"
+        app:lineColor="@color/deep_silver"
+        app:lineWidth="3"
+        app:numberOfPages="5"
+        app:textSize="30" />
 
-    <com.jswiftdev.wizard.Indicator
-        android:layout_below="@+id/indicator"
-        android:id="@+id/indicator2"
+    <com.jswiftdev.wizard.SlideSelector
+        android:id="@+id/slider_selector"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        app:lineColor="@color/apple_green"
-        app:numberOfPages="7"
-        app:circleRadius="25"
-        app:textSize="20"
-        app:activePage="2"
-        app:activeCircleColor="@color/apple_red"
-        app:circleColor="@color/apple_green"
-        app:lineWidth="3" />
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/indicator"
+        app:textPadding="20"
+        app:tColor="@color/black" />
 
 </RelativeLayout>

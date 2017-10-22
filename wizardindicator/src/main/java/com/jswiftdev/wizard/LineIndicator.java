@@ -6,67 +6,26 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.View;
 
-public class Indicator extends View {
-    private int numberOfPages;
-    private int circleColor;
-    private int activeCircleColor;
-    private int lineColor;
-    private int textColor;
-    private float lineWidth;
-    private float circleRadius;
-    private float textSize;
-    private int activePage;
+import com.jswiftdev.wizard.commons.Indicator;
 
-    private Paint paint;
+/**
+ * Created by james on 17/10/2017.
+ */
 
-    public Indicator(Context context, AttributeSet attrs) {
+public class LineIndicator extends Indicator {
+
+
+    public LineIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(attrs);
     }
 
-    public Indicator(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LineIndicator(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(attrs);
     }
 
-    /**
-     * provide the total number of the pages that you wish to be shown in the indicator
-     *
-     * @param numberOfPages total number of pages
-     * @return instance of this class
-     */
-    public Indicator setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
-        return this;
-    }
-
-
-    /**
-     * provide the page number of the currently selected page
-     *
-     * @param activePage page number
-     * @return instance of this class
-     */
-    public Indicator setActivePage(int activePage) {
-        this.activePage = activePage;
-        invalidate();
-        return this;
-    }
-
-    /**
-     * provide the color of the horizontal color shown on the indicator
-     *
-     * @param lineColor color
-     * @return instance of this class
-     */
-    public Indicator setLineColor(int lineColor) {
-        this.lineColor = lineColor;
-        return this;
-    }
-
-    private void init(AttributeSet attrs) {
+    @Override
+    protected void init(AttributeSet attrs) {
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.wizard);
         numberOfPages = typedArray.getInt(R.styleable.wizard_numberOfPages, 1);
         activePage = typedArray.getInt(R.styleable.wizard_activePage, 1);
@@ -81,6 +40,7 @@ public class Indicator extends View {
 
         paint = new Paint();
     }
+
 
     @Override
     public void draw(Canvas canvas) {
@@ -119,4 +79,5 @@ public class Indicator extends View {
                     (height / 2) + textSize / relatedRatio, paint);
         }
     }
+
 }

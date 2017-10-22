@@ -18,5 +18,9 @@
         <attr name="textPadding" format="integer" />
         <attr name="textBackgroundColor" format="integer" />
         <attr name="tColor" format="integer" />
+        <attr name="drawableId" format="reference" />
+        <attr name="choicesArrayId" format="reference" />
+        <attr name="activeTextColor" format="color" />
+        <attr name="inActiveTextColor" format="color" />
     </declare-styleable>
 </resources>

@@ -23,6 +23,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/indicator"
         app:textPadding="20"
+        app:choicesArrayId="@array/options"
+        app:drawableId="@drawable/another_back"
+        app:activeTextColor="@color/white"
+        app:inActiveTextColor="@color/deep_silver"
         app:tColor="@color/black" />
 
 </RelativeLayout>

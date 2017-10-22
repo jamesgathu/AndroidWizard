@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -15,8 +14,8 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static android.view.ViewGroup.LayoutParams.FILL_PARENT;
 import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
+import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
 /**
  * Created by james on 22/10/2017.
@@ -26,6 +25,10 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
     private int textPadding = 0;
     private int textBackGroundColor = Color.TRANSPARENT;
     private int textColor = Color.BLACK;
+    private int optionsArrayId = R.array.options_default;
+    private int drawableId = R.drawable.back_circle;
+    private int activeTextColor = R.color.white;
+    private int inActiveTextColor = Color.GRAY;
 
     private Drawable marker;
     private LinearLayout linearLayout;
@@ -44,12 +47,12 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         init(null);
     }
 
-    public SlideSelector(Context context, @Nullable AttributeSet attrs) {
+    public SlideSelector(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs);
     }
 
-    public SlideSelector(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public SlideSelector(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs);
     }
@@ -68,11 +71,15 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
             textPadding = typedArray.getInt(R.styleable.chooser_textPadding, 0);
             textBackGroundColor = typedArray.getColor(R.styleable.chooser_textBackgroundColor, Color.TRANSPARENT);
             textColor = typedArray.getColor(R.styleable.chooser_tColor, Color.WHITE);
+            activeTextColor = typedArray.getColor(R.styleable.chooser_activeTextColor, Color.WHITE);
+            inActiveTextColor = typedArray.getColor(R.styleable.chooser_inActiveTextColor, Color.WHITE);
+            optionsArrayId = typedArray.getResourceId(R.styleable.chooser_choicesArrayId, Color.WHITE);
+            drawableId = typedArray.getResourceId(R.styleable.chooser_drawableId, Color.WHITE);
             typedArray.recycle();
         }
 
 
-        String[] array = getResources().getStringArray(R.array.options_default);
+        String[] array = getResources().getStringArray(optionsArrayId);
 
 
         for (String text : array) {
@@ -80,7 +87,7 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
             linearLayout.addView(textView);
         }
 
-        marker = getResources().getDrawable(R.drawable.back_circle);
+        marker = getResources().getDrawable(drawableId);
         ballMarker.setBackgroundDrawable(marker);
     }
 
@@ -95,8 +102,7 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         TextView textView = new TextView(getContext());
         textView.setText(text);
 
-
-        LinearLayout.LayoutParams params = new LayoutParams(FILL_PARENT, MATCH_PARENT);
+        LinearLayout.LayoutParams params = new LayoutParams(WRAP_CONTENT, MATCH_PARENT);
         params.weight = 1;
 
         textView.setPadding(textPadding, textPadding, textPadding, textPadding);

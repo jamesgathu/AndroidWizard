@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://github.com/GathuJamex/AndroidWizard'
     gitUrl = 'https://github.com/GathuJamex/AndroidWizard.git'
 
-    libraryVersion = '1.1.4'
+    libraryVersion = '1.1.6'
 
     developerId = 'gathujamex254'
     developerName = 'James Gathu'

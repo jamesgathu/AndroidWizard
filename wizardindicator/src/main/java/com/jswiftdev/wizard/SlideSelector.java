@@ -155,7 +155,7 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
 
         for (int i = 0; i < linearLayout.getChildCount(); i++) {
             if (linearLayout.getChildAt(i) instanceof TextView) {
-                ((TextView) linearLayout.getChildAt(i)).setTextColor(textColor);
+                ((TextView) linearLayout.getChildAt(i)).setTextColor(inActiveTextColor);
             }
         }
 
@@ -167,7 +167,7 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
 
             @Override
             public void onAnimationEnd(Animator animation) {
-                ((TextView) v).setTextColor(Color.WHITE);
+                ((TextView) v).setTextColor(activeTextColor);
             }
 
             @Override

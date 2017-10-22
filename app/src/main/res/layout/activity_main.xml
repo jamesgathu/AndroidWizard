@@ -26,7 +26,7 @@
         app:choicesArrayId="@array/options"
         app:drawableId="@drawable/another_back"
         app:activeTextColor="@color/white"
-        app:inActiveTextColor="@color/deep_silver"
+        app:inActiveTextColor="@color/black"
         app:tColor="@color/black" />
 
 </RelativeLayout>

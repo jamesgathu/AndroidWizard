@@ -17,7 +17,7 @@ Add the following to your **build.gradle(App)**
     }
 ```
 
-##Wizard Indicator
+## Wizard Indicator
 To use the Wizard Indicator
 In your layout add the following view
 ```xml
@@ -54,7 +54,7 @@ to manipulate the changes from page to page, you can use
 while using it with viewpager add **indicator.setActivePage(position);** in **onTabSelected(...)** method  
 as shown below
 
-##Slide Selector
+## Slide Selector
 To use the slide selector add the following in your layout file
 ```xml
 <com.jswiftdev.wizard.SlideSelector

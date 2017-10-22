@@ -57,33 +57,33 @@ as shown below
 ## Slide Selector
 To use the slide selector add the following in your layout file
 ```xml
-<com.jswiftdev.wizard.SlideSelector
-        android:clickable="false"
-        android:id="@+id/slider_selector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/indicator"
-        app:activeTextColor="@color/white"
-        app:choicesArrayId="@array/options"
-        app:drawableId="@drawable/another_back"
-        app:inActiveTextColor="@color/black"
-        app:tColor="@color/black"
-        app:textPadding="20" />
+    <com.jswiftdev.wizard.SlideSelector
+            android:clickable="false"
+            android:id="@+id/slider_selector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/indicator"
+            app:activeTextColor="@color/white"
+            app:choicesArrayId="@array/options"
+            app:drawableId="@drawable/another_back"
+            app:inActiveTextColor="@color/black"
+            app:tColor="@color/black"
+            app:textPadding="20" />
 ```
 
 from your Activity or fragment use
 ```java
 ...
-SlideSelector slideSelector = findViewById(R.id.slider_selector);
-        slideSelector.setSelectionChanges(new SlideSelector.SelectionChanges() {
-            @Override
-            public void onSelectedIndexChanged(String selectedItem) {
-                //get the selected item from the provided array @array/options
-            }
-        });
+    SlideSelector slideSelector = findViewById(R.id.slider_selector);
+    slideSelector.setSelectionChanges(new SlideSelector.SelectionChanges() {
+        @Override
+        public void onSelectedIndexChanged(String selectedItem) {
+            //get the selected item from the provided array @array/options
+        }
+    });
 
-        //choose different selection as default
-        slideSelector.setSelectedIndex(4);
+//choose different selection as default
+slideSelector.setSelectedIndex(4);
 ...
 ```
 

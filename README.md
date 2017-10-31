@@ -13,7 +13,7 @@ Add the following to your **build.gradle(App)**
 
     dependencies {
         //other dependencies
-        compile 'com.jswiftdev.wizard:wizardindicator:0.1.1'
+        compile 'com.jswiftdev.wizard:wizardindicator:0.1.2'
     }
 ```
 

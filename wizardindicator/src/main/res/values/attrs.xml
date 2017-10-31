@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="wizard">
-
         <attr name="circleRadius" format="float" />
         <attr name="optionsArray" format="reference" />
         <attr name="circleColor" format="color" />
@@ -22,5 +21,11 @@
         <attr name="choicesArrayId" format="integer" />
         <attr name="activeTextColor" format="color" />
         <attr name="inActiveTextColor" format="color" />
+        <attr name="mode">
+            <enum name="TAB" value="1" />
+            <enum name="TAB_INVERSE" value="2" />
+            <enum name="BUBBLE" value="3" />
+        </attr>
+
     </declare-styleable>
 </resources>

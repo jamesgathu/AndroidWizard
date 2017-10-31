@@ -2,51 +2,109 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:padding="16dp"
+    android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
-    android:layout_height="match_parent">
+    android:padding="16dp">
+
+    <ImageView
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/wizard_hat" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/wizard_indicator"
+        android:textColor="@color/apple_pink"
+        android:textSize="18sp" />
 
     <com.jswiftdev.wizard.LineIndicator
         android:id="@+id/indicator"
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        app:activeCircleColor="@color/apple_orange"
+        app:activeCircleColor="@color/apple_pink"
         app:activePage="3"
         app:circleColor="@color/deep_silver"
-        app:circleRadius="50"
+        app:circleRadius="45"
         app:lineColor="@color/deep_silver"
-        app:lineWidth="3"
+        app:lineWidth="10"
         app:numberOfPages="5"
         app:textSize="30" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
+        android:text="@string/click_on_option_to_see_action"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/_1_bubble_indicator"
+        android:textColor="@color/deep_silver"
+        android:textStyle="bold" />
+
     <com.jswiftdev.wizard.SlideSelector
-        android:clickable="false"
-        android:id="@+id/slider_selector"
+        android:id="@+id/bubble_selector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/indicator"
+        android:layout_marginTop="10dp"
         app:activeTextColor="@color/white"
         app:choicesArrayId="@array/options"
         app:drawableId="@drawable/another_back"
         app:inActiveTextColor="@color/black"
-        app:tColor="@color/black"
+        app:tColor="@color/apple_pink"
         app:textPadding="20" />
 
     <TextView
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="30dp"
-        android:text="Click on option to see action"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/_2_simple_tab_indicator"
+        android:textColor="@color/deep_silver"
+        android:textStyle="bold" />
 
     <com.jswiftdev.wizard.SlideSelector
+        android:id="@+id/inverse_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:activeTextColor="@color/white"
+        android:layout_marginTop="10dp"
+        app:activeTextColor="@color/apple_pink"
         app:choicesArrayId="@array/options"
-        app:drawableId="@drawable/another_back"
+        app:drawableId="@drawable/rect_back"
         app:inActiveTextColor="@color/black"
+        app:mode="TAB_INVERSE"
         app:tColor="@color/black"
-        app:textPadding="20" />
+        app:textPadding="30" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/_3_inverted_tab_indicator"
+        android:textColor="@color/deep_silver"
+        android:textStyle="bold" />
+
+    <com.jswiftdev.wizard.SlideSelector
+        android:id="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:activeTextColor="@color/apple_pink"
+        app:choicesArrayId="@array/options"
+        app:drawableId="@drawable/rect_back"
+        app:inActiveTextColor="@color/black"
+        app:mode="TAB"
+        app:tColor="@color/black"
+        app:textPadding="30" />
 
 </LinearLayout>

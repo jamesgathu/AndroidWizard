@@ -4,12 +4,16 @@ import android.animation.Animator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,6 +37,11 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
     private Drawable marker;
     private LinearLayout linearLayout;
     private FrameLayout ballMarker;
+
+    private int mode = 3;
+    public static final int MODE_TAB = 1;
+    public static final int MODE_TAB_INVERSE = 2;
+    public static final int MODE_BUBBLE = 3;
 
     /**
      * provide callback for actions done on the view group
@@ -69,6 +78,7 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         if (attributeSet != null) {
             TypedArray typedArray = getContext().obtainStyledAttributes(attributeSet, R.styleable.chooser);
             textPadding = typedArray.getInt(R.styleable.chooser_textPadding, 0);
+            mode = typedArray.getInt(R.styleable.chooser_mode, 3);
             textBackGroundColor = typedArray.getColor(R.styleable.chooser_textBackgroundColor, Color.TRANSPARENT);
             textColor = typedArray.getColor(R.styleable.chooser_tColor, Color.WHITE);
             activeTextColor = typedArray.getColor(R.styleable.chooser_activeTextColor, Color.WHITE);
@@ -89,7 +99,17 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         }
 
         marker = getResources().getDrawable(drawableId);
+        marker.setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.MULTIPLY);
+
         ballMarker.setBackgroundDrawable(marker);
+
+        switch (mode) {
+            case MODE_TAB_INVERSE:
+                FrameLayout.LayoutParams params = (FrameLayout.LayoutParams) ballMarker.getLayoutParams();
+                params.gravity = Gravity.BOTTOM;
+                ballMarker.setLayoutParams(params);
+                break;
+        }
     }
 
 
@@ -114,6 +134,16 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
         textView.setTag(text);
         textView.setOnClickListener(this);
         textView.setBackgroundColor(textBackGroundColor);
+
+        switch (mode) {
+            case MODE_TAB:
+            case MODE_TAB_INVERSE:
+                textView.setText(textView.getText().toString().toUpperCase());
+                textView.setTypeface(Typeface.DEFAULT_BOLD);
+                break;
+            case MODE_BUBBLE:
+                break;
+        }
 
         return textView;
     }
@@ -150,45 +180,48 @@ public class SlideSelector extends LinearLayout implements OnClickListener {
     }
 
     private void select(final View v) {
-        float a = ballMarker.getWidth() / 2;
-        float c = v.getWidth() / 2;
-        float b = c - a;
+        float halfBallWidth = ballMarker.getWidth() / 2;
+        float halfViewWidth = v.getWidth() / 2;
+        float offsetForBallLocation = halfViewWidth - halfBallWidth;
 
+        selectedIndex = linearLayout.indexOfChild(v) + 1;
 
-        ballMarker.animate().translationX(v.getX() + b).setListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
+        ballMarker.animate()
+                .translationX(v.getX() + offsetForBallLocation)
+                .setListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
 
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                for (int i = 0; i < linearLayout.getChildCount(); i++) {
-                    if (linearLayout.getChildAt(i) instanceof TextView) {
-                        ((TextView) linearLayout.getChildAt(i)).setTextColor(inActiveTextColor);
                     }
-                }
-                ((TextView) v).setTextColor(activeTextColor);
-            }
 
-            @Override
-            public void onAnimationCancel(Animator animation) {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        for (int i = 0; i < linearLayout.getChildCount(); i++) {
+                            if (linearLayout.getChildAt(i) instanceof TextView) {
+                                ((TextView) linearLayout.getChildAt(i)).setTextColor(inActiveTextColor);
+                            }
+                        }
+                        ((TextView) v).setTextColor(activeTextColor);
+                    }
 
-            }
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
 
-            @Override
-            public void onAnimationRepeat(Animator animation) {
+                    }
 
-            }
-        });
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+
+                    }
+                });
 
 
         if (selectionChanges != null)
-            selectionChanges.onSelectedIndexChanged(v.getTag().toString());
+            selectionChanges.onSelectedIndexChanged(selectedIndex, v.getTag().toString());
     }
 
 
     public interface SelectionChanges {
-        void onSelectedIndexChanged(String selectedItem);
+        void onSelectedIndexChanged(int position, String selectedItem);
     }
 }

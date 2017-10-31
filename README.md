@@ -1,9 +1,9 @@
+![Image](screenshots/wizard_hat.png) 
 # Android Wizard
  
 Take it as a plugin for wizards to track the change in pages  
 The dependency is available on **jcenter()** and **mavenCentral()**
-
-![Image](screenshots/2.png)
+![Image](screenshots/wizard_screenshot.png)
 
 # Integration
 
@@ -17,7 +17,7 @@ Add the following to your **build.gradle(App)**
     }
 ```
 
-## Wizard Indicator
+## Wizard tracker
 To use the Wizard Indicator
 In your layout add the following view
 ```xml
@@ -54,7 +54,7 @@ to manipulate the changes from page to page, you can use
 while using it with viewpager add **indicator.setActivePage(position);** in **onTabSelected(...)** method  
 as shown below
 
-## Slide Selector
+##1. Bubble Indicator
 To use the slide selector add the following in your layout file
 ```xml
     <com.jswiftdev.wizard.SlideSelector
@@ -82,10 +82,47 @@ from your Activity or fragment use
         }
     });
 
-//choose different selection as default
-slideSelector.setSelectedIndex(4);
+    //choose different selection as default
+    slideSelector.setSelectedIndex(4);
 ...
+```  
+
+##2. Simple Tab Indicator
+Simple tab indicator. An imitation of the tab indicator
+```xml
+    <com.jswiftdev.wizard.SlideSelector
+            android:id="@+id/inverse_tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:activeTextColor="@color/apple_pink"
+            app:choicesArrayId="@array/options"
+            app:drawableId="@drawable/rect_back"
+            app:inActiveTextColor="@color/black"
+            app:mode="TAB_INVERSE"
+            app:tColor="@color/black"
+            app:textPadding="30" />
+
 ```
+
+##3. Inverted Tab Indicator
+Tab indicator with its indicator on the upperside  
+```xml
+    <com.jswiftdev.wizard.SlideSelector
+            android:id="@+id/tab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:activeTextColor="@color/apple_pink"
+            app:choicesArrayId="@array/options"
+            app:drawableId="@drawable/rect_back"
+            app:inActiveTextColor="@color/black"
+            app:mode="TAB"
+            app:tColor="@color/black"
+            app:textPadding="30" />
+
+```
+
 
 # License
 

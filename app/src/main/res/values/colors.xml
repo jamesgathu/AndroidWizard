@@ -9,6 +9,7 @@
     <color name="apple_green">#4CD964</color>
     <color name="apple_red">#FF3B30</color>
     <color name="apple_orange">#FF9500</color>
+    <color name="apple_pink">#FF2D55</color>
     <color name="deep_silver">#6e788a</color>
     <color name="black">#000000</color>
 
@@ -20,4 +21,5 @@
     <color name="bluegrass">#ff96c9b5</color>
     <color name="turquoise">#ff86b9b5</color>
     <color name="slate">#ff76a9b5</color>
+    <color name="faded_white">#80FFFFFF</color>
 </resources>

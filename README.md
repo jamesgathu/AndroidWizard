@@ -87,11 +87,10 @@ from your Activity or fragment use
 ...
 ```  
 
-## 2. Simple Tab Indicator
-Simple tab indicator. An imitation of the tab indicator
+## 2. Inverted Tab Indicator
+Tab indicator with its indicator on the upperside 
 ```xml
     <com.jswiftdev.wizard.SlideSelector
-            android:id="@+id/inverse_tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -105,11 +104,10 @@ Simple tab indicator. An imitation of the tab indicator
 
 ```
 
-## 3. Inverted Tab Indicator
-Tab indicator with its indicator on the upperside  
+## 3. Simple Tab Indicator
+Simple tab indicator. An imitation of the tab indicator
 ```xml
     <com.jswiftdev.wizard.SlideSelector
-            android:id="@+id/tab"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

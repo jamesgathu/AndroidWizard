@@ -54,7 +54,7 @@ to manipulate the changes from page to page, you can use
 while using it with viewpager add **indicator.setActivePage(position);** in **onTabSelected(...)** method  
 as shown below
 
-##1. Bubble Indicator
+## 1. Bubble Indicator
 To use the slide selector add the following in your layout file
 ```xml
     <com.jswiftdev.wizard.SlideSelector
@@ -87,7 +87,7 @@ from your Activity or fragment use
 ...
 ```  
 
-##2. Simple Tab Indicator
+## 2. Simple Tab Indicator
 Simple tab indicator. An imitation of the tab indicator
 ```xml
     <com.jswiftdev.wizard.SlideSelector
@@ -105,7 +105,7 @@ Simple tab indicator. An imitation of the tab indicator
 
 ```
 
-##3. Inverted Tab Indicator
+## 3. Inverted Tab Indicator
 Tab indicator with its indicator on the upperside  
 ```xml
     <com.jswiftdev.wizard.SlideSelector
